@@ -28,7 +28,7 @@ function Checkbox({ isOn, handleToggle }) {
       <div className="BoulderTask">
         <input
           type="checkbox"
-          style={{ backgroundColor: isOn && '#51E3A4' }}
+          style={{ backgroundColor: isOn && '#00C9F2' }}
           checked={isOn}
           onChange={handleToggle}
           className="BoulderComplete"

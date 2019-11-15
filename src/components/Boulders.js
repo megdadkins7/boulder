@@ -8,6 +8,8 @@ import Scorecard from './Scorecard'
 import { boulderRoutes } from '../data'
 
 const StyledBoulders = styled.div`
+  display: flex;
+  justify-content: space-between;
   .TitleWrapper {
     display: flex;
     padding 10px;
@@ -24,10 +26,6 @@ const StyledBoulders = styled.div`
   .RoutePoints {
     padding: 10px;
   }
-  .ScorecardWrapper {
-    padding: 10px
-    margin-left: auto;
-  }
 `;
 
 function Boulders() {
@@ -43,14 +41,14 @@ function Boulders() {
     })
     setBoulders(newBoulders)
   }
+  
   return (
     <StyledBoulders>
       <div className='BoulderContainer'>
-        <header className='BoulderHeader'>Boulder Route List</header>
+          <header className='BoulderHeader'>Boulder Route List</header>
         <div className='TitleWrapper'>
           <div className='RouteTitle'>Route Number</div>
           <div className='RoutePoints'>Route Points</div>
-          <div className='ScorecardWrapper'><Scorecard /></div>
         </div>
         <ul className='BoulderList'>
           {boulders.map((route, i) => (
@@ -61,6 +59,9 @@ function Boulders() {
             />
           ))}
         </ul>
+      </div>
+      <div className='ScorecardWrapper'>
+        <Scorecard boulders={boulders} />
       </div>
     </StyledBoulders>
   )
