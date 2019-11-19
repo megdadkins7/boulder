@@ -8,8 +8,8 @@ import Scorecard from './Scorecard'
 import { boulderRoutes } from '../data'
 
 const StyledBoulders = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   .TitleWrapper {
     display: flex;
     padding 10px;
@@ -44,25 +44,26 @@ function Boulders() {
   
   return (
     <StyledBoulders>
-      <div className='BoulderContainer'>
-          <header className='BoulderHeader'>Boulder Route List</header>
-        <div className='TitleWrapper'>
-          <div className='RouteTitle'>Route Number</div>
-          <div className='RoutePoints'>Route Points</div>
+        <div className='BoulderWrapper'>
+            <header className='BoulderHeader'>Boulder Route List</header>
+          <div className='TitleWrapper'>
+            <div className='RouteTitle'>Route Number</div>
+            <div className='RoutePoints'>Route Points</div>
+          </div>
+          <ul className='BoulderList'>
+            {boulders.map((route, i) => (
+              <BoulderRoute 
+                route={route}
+                key={`${route.number}${i}`}
+                toggleBoulders={toggleBoulders}
+              />
+            ))}
+          </ul>
         </div>
-        <ul className='BoulderList'>
-          {boulders.map((route, i) => (
-            <BoulderRoute 
-              route={route}
-              key={`${route.number}${i}`}
-              toggleBoulders={toggleBoulders}
-            />
-          ))}
-        </ul>
-      </div>
-      <div className='ScorecardWrapper'>
-        <Scorecard boulders={boulders} />
-      </div>
+        <div className='EmptySpace'></div>
+        <div className='ScorecardWrapper'>
+          <Scorecard boulders={boulders} />
+        </div>
     </StyledBoulders>
   )
 }
