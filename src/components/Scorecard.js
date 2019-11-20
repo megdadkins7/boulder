@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledScorecard = styled.div`
-  margin: 5px;
-  font-size: 6rem;
+  font-size: 10rem;
   color: #00C9F2;
 `;
 

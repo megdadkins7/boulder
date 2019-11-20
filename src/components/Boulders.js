@@ -49,6 +49,10 @@ const StyledBoulders = styled.div`
   .RoutePoints {
     padding: 10px;
   }
+  .ScorecardWrapper {
+    margin-top: 280px;
+    margin-right: 500px;
+  }
 `;
 
 function Boulders() {
@@ -67,28 +71,28 @@ function Boulders() {
   return (
     <StyledBoulders>
       <div className='GridWrapper'>
-      <div className='BoulderWrapper'>
-        <header className='BoulderHeader'>Boulder Route List</header>
-        <div className='TitleWrapper'>
-          <div className='RouteTitle'>Route Number</div>
-          <div className='RoutePoints'>Route Points</div>
+        <div className='BoulderWrapper'>
+          <header className='BoulderHeader'>Boulder Route List</header>
+          <div className='TitleWrapper'>
+            <div className='RouteTitle'>Route Number</div>
+            <div className='RoutePoints'>Route Points</div>
+          </div>
+          <div className='Content'>
+            <ul className='BoulderList'>
+              {boulders.map((route, i) => (
+                <BoulderRoute 
+                  route={route}
+                  key={`$ {route.number}${i}`}
+                  toggleBoulders={toggleBoulders}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className='Content'>
-          <ul className='BoulderList'>
-            {boulders.map((route, i) => (
-              <BoulderRoute 
-                route={route}
-                key={`${route.number}${i}`}
-                toggleBoulders={toggleBoulders}
-              />
-            ))}
-          </ul>
+        <div className='EmptySpace'></div>
+        <div className='ScorecardWrapper'>
+          <Scorecard boulders={boulders} />
         </div>
-      </div>
-      <div className='EmptySpace'></div>
-      <div className='ScorecardWrapper'>
-        <Scorecard boulders={boulders} />
-      </div>
       </div>
     </StyledBoulders>
   )
