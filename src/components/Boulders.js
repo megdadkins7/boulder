@@ -15,13 +15,13 @@ const StyledBoulders = styled.div`
     padding 10px;
   }
   .BoulderHeader {
-    margin: 10px;
+    margin: 5px;
     text-transform: uppercase;
     font-size: 2rem;
   }
   .RouteTitle {
     padding: 10px;
-    margin-left: 70px;
+    margin-left: 80px;
   }
   .RoutePoints {
     padding: 10px;
